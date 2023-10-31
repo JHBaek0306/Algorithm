@@ -1,3 +1,5 @@
+# 11720
+# input number without space
 num = list(input())
 sum = 0
 
