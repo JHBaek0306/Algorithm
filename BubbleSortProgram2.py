@@ -1,6 +1,7 @@
 # 1517
 result = 0
 
+# using merge sort for count swap
 def merge_sort(s, e):
     global result
     if e - s < 1: return
