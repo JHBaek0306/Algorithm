@@ -1,5 +1,5 @@
 #11051 
-
+#
 N, K = map(int, input().split())
 D = [[0 for j in range(N + 1)] for i in range(N + 1)]
 
