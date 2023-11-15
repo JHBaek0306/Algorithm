@@ -1,4 +1,6 @@
 # 11660
+import sys
+input = sys.stdin.readline
 # n -> N * N array , m -> Number of Answer
 n, m = map(int, input().split())
 A = [[0] * (n + 1)] # original list
