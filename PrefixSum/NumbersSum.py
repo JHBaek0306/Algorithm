@@ -1,5 +1,6 @@
 #2003
-
+import sys
+input = sys.stdin.readline
 N, M = map(int, input().split())
 A = list(map(int, input().split()))
 D = [0]
@@ -11,9 +12,6 @@ for i in A:
  
 left, right = 0, 1
 cnt = 0
-for i in D:
-    if i == M:
-        cnt += 1
 
 while(left < right and right <= N):
     if D[right] - D[left] == M :
