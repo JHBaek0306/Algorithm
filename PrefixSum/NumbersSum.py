@@ -11,14 +11,17 @@ for i in A:
  
 left, right = 0, 1
 cnt = 0
+for i in D:
+    if i == M:
+        cnt += 1
 
 while(left < right and right <= N):
-    if D[right] - D[left - 1 if left - 1 > 0 else 0] == M :
+    if D[right] - D[left] == M :
         cnt += 1
         right += 1
-    elif D[right] - D[left - 1 if left - 1 > 0 else 0] > M:
+    elif D[right] - D[left] > M:
         left += 1
-    elif D[right] - D[left - 1 if left - 1 > 0 else 0] < M:
+    elif D[right] - D[left] < M:
         right += 1
 
 print(cnt)
