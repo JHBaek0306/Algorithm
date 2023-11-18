@@ -12,15 +12,15 @@ for i in A:
     D.append(temp)
  
 left, right = 0, 1
-cnt = 0
+length = sys.maxsize
 
 while(left <= right and right <= N):
-    if D[right] - D[left] == M :
-        cnt += 1
-        right += 1
-    elif D[right] - D[left] > M:
+    if D[right] - D[left] >= M:
+        length = min(length, right - left)
         left += 1
-    elif D[right] - D[left] < M:
+    else:
         right += 1
 
-print(cnt)
+if(length == sys.maxsize):
+    length = 0
+print(length)
