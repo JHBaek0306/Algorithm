@@ -1,4 +1,7 @@
 # 17298
+import sys
+input = sys.stdin.readline
+
 n = int(input()) # number of list
 ans = [0] * n # answer list 
 A = list(map(int, input().split())) # original list 
