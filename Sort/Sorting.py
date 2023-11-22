@@ -1,53 +1,54 @@
 # 2751
 import sys
+
 input = sys.stdin.readline
-
-def merge(arr, low, high):
-    temp = []
-    mid = (low + high) // 2
-    i, j = low, mid + 1
-
-    while i <= mid and j <= high:
-        if arr[i] <= arr[j]:
-            temp.append(arr[i])
-            i += 1
-        else:
-            temp.append(arr[j])
-            j += 1
-
-    while i <= mid:
-        temp.append(arr[i])
-        i += 1
-
-    while j <= high:
-        temp.append(arr[j])
-        j += 1
-
-    for k in range(low, high + 1):
-        arr[k] = temp[k - low]
-
-    return arr
 
 
 def mergeSort(arr, low, high):
-    if (low >= high):
-        return  # base case
+    if low < high:
+        mid = (low + high) // 2
 
+        mergeSort(arr, low, mid)
+        mergeSort(arr, mid + 1, high)
+
+        sortedArray = merge(arr, low, high)
+
+        return sortedArray
+
+
+def merge(arr, low, high):
     mid = (low + high) // 2
+    i, j = low, mid + 1
+    output = []
 
-    mergeSort(arr, low, mid)
-    mergeSort(arr, mid+1, high)
+    while i <= mid and j <= high:
+        if arr[i] < arr[j]:
+            output.append(arr[i])
+            i += 1
+        else:
+            output.append(arr[j])
+            j += 1
 
-    sorted_array = merge(arr, low, high)
+    while i <= mid:
+        output.append(arr[i])
+        i += 1
 
-    return sorted_array
+    while j <= high:
+        output.append(arr[j])
+        j += 1
+
+    for k in range(low, high + 1):
+        arr[k] = output[k - low]
+
+    return arr
+
 
 N = int(input())
 arr = []
 for _ in range(N):
     arr.append(int(input()))
 
-sortedArr = mergeSort(arr, 0, len(arr) -1 )
+sortedArr = mergeSort(arr, 0, len(arr) - 1)
 
 for num in sortedArr:
     print(num, end="\n")
