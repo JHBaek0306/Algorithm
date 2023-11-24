@@ -12,8 +12,8 @@ for i in range(N):
     # Compare value, if myIdx value has no chance to be minumum pop it 
     while myDeque and myDeque[-1][0] > myIdx[i]:
         myDeque.pop()
-    myDeque.append(myIdx[i], i)
+    myDeque.append((myIdx[i], i))
     # Compare index, if index exceed the size of window pop it
     if myDeque[0][1] <= i - L:
-        myDeque.popleft
+        myDeque.popleft()
     print(myDeque[0][0], end=" ")
